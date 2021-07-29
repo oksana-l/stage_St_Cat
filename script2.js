@@ -105,10 +105,10 @@ function load() {
   	const daysInMonth = new Date(year, month + 1, 0).getDate();
   
 	const dateString = firstDayOfMonth.toLocaleDateString('en-us', {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'numeric',
-    day: 'numeric',
+	    weekday: 'long',
+	    year: 'numeric',
+	    month: 'numeric',
+	    day: 'numeric',
 	});
 	const paddingDays = weekdays.indexOf(dateString.split(', ')[0]);
 	console.log(creatOptionMonthMoins());
@@ -277,25 +277,21 @@ $(document).ready(function() {
 	initButtons();
 	//clickOptions();
 	load();
-	
 
 	$("#input").click(function(){
-
-		//console.log("Yes !");
-				$.ajax({
-				contentType: 'application/json',
-				type: 'POST',
-				url: 'reponse',
-				data: JSON.stringify(obj),
-				success: function (resultat, statut) {
-					console.log(resultat);				
-				},
-				error: function (resultat, statut, erreur) {
-                    alert('erreur');			
-	}
-			});
+			$.ajax({
+			contentType: 'application/json',
+			type: 'POST',
+			url: 'reponse',
+			data: JSON.stringify(obj),
+			success: function (resultat, statut) {
+				console.log(resultat);				
+			},
+			error: function (resultat, statut, erreur) {
+				alert('erreur');			
+			}
 		});
-			
+	});			
 });
 
 /*---------------------------------------------------------------------------------------------------------------------*/
